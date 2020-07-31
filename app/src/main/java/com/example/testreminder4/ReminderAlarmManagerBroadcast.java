@@ -49,57 +49,16 @@ public class ReminderAlarmManagerBroadcast extends BroadcastReceiver {
                     PendingIntent.getActivity(context, 0, webIntent, 0) ;
 
 
-            // to snooze start CancelSevice or CancelBroadcast
+            // to cancelgit add button start CancelSevice or CancelBroadcast
             Intent cancelIntent = new Intent(context ,CancelBroadcast.class);
             cancelIntent.putExtra("NOTIF_ID", notifId);
 //            cancelIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            PendingIntent cancelPendingIntent = PendingIntent.getBroadcast(context,0 ,cancelIntent,PendingIntent.FLAG_ONE_SHOT);
-
+            PendingIntent cancelPendingIntent = PendingIntent.getBroadcast(context,notifId ,cancelIntent,PendingIntent.FLAG_ONE_SHOT);
             // to start service
 //            PendingIntent cancelPendingIntent = PendingIntent.getService(context,0 ,cancelIntent,PendingIntent.FLAG_ONE_SHOT);
 
 
-            /***********************************************************************/
 
-//            // to set snooze   test1
-//            Intent snoozeIntent = new Intent(context, ReminderAlarmManagerBroadcast.class);
-//            intent.putExtra("TITLE" ,intent.getExtras().getString("TITLE"));
-//            intent.putExtra("CONTENT" ,intent.getExtras().getString("CONTENT"));
-//            intent.putExtra("SNOOZE" ,intent.getExtras().getString("SNOOZE"));
-//            int requestCode = (int) System.currentTimeMillis();
-//            Calendar alarmStartTime = Calendar.getInstance();
-//            alarmStartTime.set(Calendar.SECOND, alarmStartTime.getTime().getSeconds());
-//
-//            PendingIntent snoozePendingIntent = PendingIntent.getBroadcast(context.getApplicationContext(),requestCode, snoozeIntent, 0);
-//            AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {  // this line is need if we use setExact
-//                // use setExact instead of set to remove delay of showing notif
-//                alarmManager.setExact(AlarmManager.RTC, alarmStartTime.getTimeInMillis()+10, snoozePendingIntent);
-//            }
-
-
-            /*********************************************************/
-            // to set snooze   test2
-//            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-//            Intent snoozeIntent = new Intent(context, ReminderAlarmManagerBroadcast.class);
-//            int requestCode = (int) System.currentTimeMillis();
-//            PendingIntent pendingSnoozIntent = PendingIntent.getBroadcast(context, requestCode, snoozeIntent, 0);
-//
-//            Calendar alarmStartTime = Calendar.getInstance();
-//            alarmStartTime.set(Calendar.SECOND, 20);
-//            //Repeat every 24 hours
-//            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarmStartTime.getTimeInMillis(), 20*1000, pendingSnoozIntent);
-
-              /***********************************************************************/
-
-//             to set snooze   test3
-//
-//            Intent snoozeIntent = new Intent(context ,SetNotification.class);
-//
-////            secondIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//            PendingIntent snoozePendingIntent = PendingIntent.getActivity(context,0 ,snoozeIntent,PendingIntent.FLAG_UPDATE_CURRENT);
-
-            /***********************************************************************/
 
 //            RemoteViews collapsedView = new RemoteViews(context.getPackageName(),R.layout.colaps_notif_view);
 //            RemoteViews expandedView = new RemoteViews(context.getPackageName(),R.layout.expanded_notif_view);
