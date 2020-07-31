@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="256dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_expanded"
+        android:textAlignment="center"
+        android:padding="8dp"
+        android:background="#8F75C8"
+        style="@style/TextAppearance.Compat.Notification"
+        android:text="this is custom notif"
+        android:textColor="#fff"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:scaleType="centerCrop"
+        android:background="@color/colorPrimary"
+        android:id="@+id/image_view_expanded"
+        android:text="expand to show" />
+
+</LinearLayout>

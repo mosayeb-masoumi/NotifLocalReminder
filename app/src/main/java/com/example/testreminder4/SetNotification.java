@@ -12,13 +12,18 @@ import static android.content.Context.ALARM_SERVICE;
 
 public class SetNotification {
 
+
+
     // make sure to disable battery saving for this app
 
     public static void setNotif(Context context ,int dpYear, int dpMonth, int dpDay, int tpHour, int tpMinute, String title, String content){
 
+        int requestCode = (int) System.currentTimeMillis();
+
         Intent intent = new Intent(context, ReminderAlarmManagerBroadcast.class);
         intent.putExtra("TITLE" ,title);
         intent.putExtra("CONTENT" ,content);
+        intent.putExtra("REQUEST_ID" ,requestCode);
 
         /**** create unique request code with shareprefrence
 //        int requestCode;
@@ -30,8 +35,7 @@ public class SetNotification {
 //        }  ***/
 
 
-        int requestCode = (int) System.currentTimeMillis();
-
+//        int requestCode = (int) System.currentTimeMillis();
 
 
         Calendar alarmStartTime = Calendar.getInstance();
@@ -43,10 +47,10 @@ public class SetNotification {
         alarmStartTime.set(Calendar.SECOND, 0);
 
 
-
-
                                                                                                           // flg must be 0 to show all registred notif
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context.getApplicationContext(),requestCode, intent, 0);
+
+
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {  // this line is need if we use setExact
                       // use setExact instead of set to remove delay of showing notif
